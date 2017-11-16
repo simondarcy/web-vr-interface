@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>360 Demo - RTÉ</title>
+    <meta name="description" content="RTÉ 360">
+
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+
+</head>
+<body>
+
+
+
+<a-scene visible="true">
+
+    <a-assets>
+        <!-- Scene -->
+
+        <img id="sky" src="img/rte-bgr.jpg" crossorigin="anonymous" />
+        <img id="black" src="img/black.jpg" crossorigin="anonymous" />
+        <img id="play" src="img/button_play.png" crossorigin="anonymous" />
+        <img id="back" src="img/button_back.png" crossorigin="anonymous" />
+        <!-- Tiles -->
+        <img id="tile1" src="img/bloom.jpg" crossorigin="anonymous" />
+
+        <!-- Videos -->
+        <video id="video" loop="false" src="video/blank.mp4"></video>
+
+    </a-assets>
+
+
+    <!-- Video tiles--->
+    <a-entity rotation="0 60 0" id="videolist" position="0 0.7 1.7"></a-entity>
+
+
+    <a-entity id="content"  visible="false" position="0 1.6 -1"
+              text="anchor: center; width: 1; color: white; value: Taragh Loughrey-Grant presents coverage of the annual Bloom festival helf in the Iveagh Gardens">
+
+        <a-image class="tile1" width="1" height="0.5" position="-0 0.4 0" src="#tile1"></a-image>
+        <a-image class="link" id="playBtn" width="0.2" height="0.2" position="-0.13 -0.2 0" src="#play"></a-image>
+        <a-image class="link" id="backBtn" width="0.2" height="0.2" position="0.12 -0.2 0" src="#back"></a-image>
+
+
+    </a-entity>
+
+
+    <a-sky src="#sky" id="bgr" rotation="0 -90 0"></a-sky>
+
+    <a-videosphere webkit-playsinline id="videosphere" src="#video" visible="false"  rotation="0 180 0"></a-videosphere>
+
+
+    <a-entity id="camera" camera="userHeight: 1.6" look-controls>
+        <a-entity cursor="fuse: true; fuseTimeout: 1500"
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                  material="color: #4CC3D9; shader: flat"></a-entity>
+    </a-entity>
+
+
+    <a-box id="homeBtn"  scale="2 2 2" position="0 -10 0" material="transparent:true" src="img/home.png?v=1"></a-box>
+
+
+
+    <a-grid></a-grid>
+
+
+
+
+
+</a-scene>
+
+
+<script src="js/set-image.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
